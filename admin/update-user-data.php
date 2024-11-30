@@ -13,5 +13,4 @@ $sql1 = "UPDATE user SET first_name = '{$fname}', last_name = '{$lname}',usernam
 if(mysqli_query($conn,$sql1)){
     header("Location:http://localhost/news/admin/users.php");
 }
-
 ?>
