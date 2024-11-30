@@ -22,7 +22,7 @@ if(isset($_POST['save'])){
         ('{$fname}','{$lname}','{$user}','{$password}','{$role}')";
         
         if(mysqli_query($conn,$sql1)){
-            header("Location:http://localhost/news/admin/users.php");
+            header("Location:{$hostname}/admin/users.php");
         }
     }
 }
