@@ -58,8 +58,11 @@
                                     <td><?= $row['category_name'] ?></td>
                                     <td><?= $row['post_date'] ?></td>
                                     <td><?= $row['username']  ?></td>
-                                    <td class='edit'><a href='update-post.php?id=<?= $row['post_id'] ?>'><i class='fa fa-edit'></i></a></td>
-                                    <td class='delete'><a href='delete-post.php?id=<?= $row['post_id'] ?>'><i class='fa fa-trash-o'></i></a></td>
+                                    <td class='edit'><a href='update-post.php?id=<?= $row['post_id'];?>'><i class='fa fa-edit'></i></a></td>
+                                    <td class='delete'>
+                                        <a href='delete-post.php?id=<?= $row['post_id'];?>&catid=<?= $row['category'] ?>'>
+                                            
+                                        <i class='fa fa-trash-o'></i></a></td>
                                 </tr>
                             <?php } ?>
                         </tbody>
