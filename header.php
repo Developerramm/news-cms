@@ -21,10 +21,14 @@
         <!-- row -->
         <div class="row">
             <!-- LOGO -->
-            <div class=" col-md-offset-4 col-md-4">
+            <div class="col-md-2">
                 <a href="index.php" id="logo"><img src="images/news.jpg"></a>
             </div>
             <!-- /LOGO -->
+            <div class="col-md-offset-8  col-md-1">
+                <a href="./admin" 
+                style="font-size: 18px;color: white;" >Login/Register</a>
+            </div>
         </div>
     </div>
 </div>

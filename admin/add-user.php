@@ -1,5 +1,5 @@
 <?php 
-include "header.php";
+// include "header.php";
 
 if(isset($_POST['save'])){
     include "config.php";
@@ -30,10 +30,13 @@ if(isset($_POST['save'])){
 
 ?>
   <div id="admin-content">
+  <link rel="stylesheet" href="../css/bootstrap.min.css" />
+        <link rel="stylesheet" href="font/font-awesome-4.7.0/css/font-awesome.css">
+        <link rel="stylesheet" href="../css/style.css">
       <div class="container">
           <div class="row">
               <div class="col-md-12">
-                  <h1 class="admin-heading">Add User</h1>
+                  <h1 class="admin-heading text-center">Add User</h1>
               </div>
               <div class="col-md-offset-3 col-md-6">
                   <!-- Form Start -->
@@ -69,4 +72,6 @@ if(isset($_POST['save'])){
            </div>
        </div>
    </div>
-<?php include "footer.php"; ?>
+<?php 
+// include "footer.php"; 
+?>

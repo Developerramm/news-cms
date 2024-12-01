@@ -539,6 +539,14 @@ i.fa{
     text-decoration: underline;
 }
 
+#login_reg{
+    margin: 10px 0;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    display: inline-block;
+}
+
 /* ===================== */
 /* FrontEnd CSS END */
 /* ===================== */
