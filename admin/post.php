@@ -54,7 +54,7 @@
                             ?>
                                 <tr>
                                     <td class='id'> <?= $row['post_id'] ?></td>
-                                    <td><?php echo substr($row['description'], 0, 60) ?>...</td>
+                                    <td><?php echo $row['title']?></td>
                                     <td><?= $row['category_name'] ?></td>
                                     <td><?= $row['post_date'] ?></td>
                                     <td><?= $row['username']  ?></td>
