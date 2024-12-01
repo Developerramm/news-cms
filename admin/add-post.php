@@ -19,9 +19,6 @@
                       <div class="form-group">
                           <label for="exampleInputPassword1">Category</label>
                           <select name="category" class="form-control">
-
-                              
-
                               <?php 
                                 include "config.php";
                                 $sql = "SELECT * FROM category";
