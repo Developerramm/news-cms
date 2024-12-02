@@ -11,7 +11,7 @@
 
                             $post_id = $_GET['id'];
 
-                            $sql = "SELECT post.title, post.description,post.post_img,post.post_date,user.username, category.category_name,post.post_id,category.category_id FROM post LEFT JOIN category ON post.category = category.category_id LEFT JOIN user ON post.author = user.user_id WHERE post_id = {$post_id}";
+                            $sql = "SELECT post.title, post.description,post.post_img,post.post_date,user.username, category.category_name,post.post_id,category.category_id,user.user_id FROM post LEFT JOIN category ON post.category = category.category_id LEFT JOIN user ON post.author = user.user_id WHERE post_id = {$post_id}";
 
                             $result = mysqli_query($conn, $sql) or die("Query failed");
 
@@ -32,7 +32,7 @@
                                 </span>
                                 <span>
                                     <i class="fa fa-user" aria-hidden="true"></i>
-                                    <a href='author.php'><?= $row['username']; ?></a>
+                                    <a href='author.php?id=<?= $row['user_id']; ?>'><?= $row['username']; ?></a>
                                 </span>
                                 <span>
                                     <i class="fa fa-calendar" aria-hidden="true"></i>
