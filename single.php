@@ -11,7 +11,7 @@
 
                             $post_id = $_GET['id'];
 
-                            $sql = "SELECT post.title, post.description,post.post_img,post.post_date,user.username, category.category_name,post.post_id FROM post LEFT JOIN category ON post.category = category.category_id LEFT JOIN user ON post.author = user.user_id WHERE post_id = {$post_id}";
+                            $sql = "SELECT post.title, post.description,post.post_img,post.post_date,user.username, category.category_name,post.post_id,category.category_id FROM post LEFT JOIN category ON post.category = category.category_id LEFT JOIN user ON post.author = user.user_id WHERE post_id = {$post_id}";
 
                             $result = mysqli_query($conn, $sql) or die("Query failed");
 
@@ -27,7 +27,8 @@
                             <div class="post-information">
                                 <span>
                                     <i class="fa fa-tags" aria-hidden="true"></i>
-                                    <?= $row['category_name']; ?>
+                                    <a href="category.php?cid=<?= $row['category_id']; ?>"><?= $row['category_name']; ?></a>
+                                    
                                 </span>
                                 <span>
                                     <i class="fa fa-user" aria-hidden="true"></i>

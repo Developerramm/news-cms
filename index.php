@@ -17,7 +17,7 @@
                     $limit = 3;
                     $offset = ($page - 1) * $limit;
 
-                    $sql = "SELECT post.title, post.description,post.post_img,post.post_date,user.username, category.category_name,post.post_id FROM post LEFT JOIN category ON post.category = category.category_id LEFT JOIN user ON post.author = user.user_id ORDER BY post_id DESC LIMIT {$offset},{$limit}";
+                    $sql = "SELECT post.title, post.description,post.post_img,post.post_date,user.username, category.category_name,post.post_id,category.category_id FROM post LEFT JOIN category ON post.category = category.category_id LEFT JOIN user ON post.author = user.user_id ORDER BY post_id DESC LIMIT {$offset},{$limit}";
                     $result = mysqli_query($conn, $sql) or die("Query failed");
 
                     if (mysqli_num_rows($result) > 0) {
@@ -37,7 +37,7 @@
                                             <div class="post-information">
                                                 <span>
                                                     <i class="fa fa-tags" aria-hidden="true"></i>
-                                                    <a href='category.php'><?= $row['category_name']; ?></a>
+                                                    <a href='category.php?cid=<?= $row['category_id'] ?>'><?= $row['category_name']; ?></a>
                                                 </span>
                                                 <span>
                                                     <i class="fa fa-user" aria-hidden="true"></i>

@@ -29,7 +29,7 @@
                         $limit = 3;
                         $offset = ($page - 1) * $limit;
     
-                        $sql1 = "SELECT post.title, post.description,post.post_img,post.post_date,user.username, category.category_name,post.post_id FROM post LEFT JOIN category ON post.category = category.category_id LEFT JOIN user ON post.author = user.user_id
+                        $sql1 = "SELECT post.title, post.description,post.post_img,post.post_date,user.username, category.category_name,post.post_id,category.category_id FROM post LEFT JOIN category ON post.category = category.category_id LEFT JOIN user ON post.author = user.user_id
                             WHERE category.category_id = {$cat_id}    
                             ORDER BY post_id DESC LIMIT {$offset},{$limit}";
 
@@ -41,7 +41,9 @@
                     <div class="post-content">
                         <div class="row">
                             <div class="col-md-4">
-                                <a class="post-img" href="single.php?id=<?= $row1['post_id'];?>"><img src="images/post-format.jpg" alt=""/></a>
+                                <a class="post-img" href="single.php?id=<?= $row1['post_id'];?>">
+                                    <img src="./admin/upload/<?= $row1['post_img']; ?>" alt="" />
+                                </a>
                             </div>
                             <div class="col-md-8">
                                 <div class="inner-content clearfix">
@@ -51,7 +53,9 @@
                                     <div class="post-information">
                                         <span>
                                             <i class="fa fa-tags" aria-hidden="true"></i>
-                                            <a href='category.php'><?= $row1['category_name'];?></a>
+                                           
+                                                <?= $row1['category_name'];?>
+                                            
                                         </span>
                                         <span>
                                             <i class="fa fa-user" aria-hidden="true"></i>
@@ -76,12 +80,12 @@
                     $sql2 = "SELECT * FROM post WHERE category = {$cat_id}";
                     $result2 = mysqli_query($conn, $sql2) or die("Query Failed");
 
-                    if (mysqli_num_rows($result2) > 1) {
+                    if (mysqli_num_rows($result2) > 3) {
                         $total_records = mysqli_num_rows($result2);
                         $total_page = ceil($total_records / $limit);
     
                         echo "<ul class='pagination'>";
-    
+                        
                         if ($page > 1) {
                             echo '<li><a href="category.php?cid='. ($cat_id) .'&page=' . ($page - 1) . '">Prev</a></li>';
                         }
