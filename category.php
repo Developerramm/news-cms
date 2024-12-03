@@ -29,7 +29,7 @@
                         $limit = 3;
                         $offset = ($page - 1) * $limit;
     
-                        $sql1 = "SELECT post.title, post.description,post.post_img,post.post_date,user.username, category.category_name,post.post_id,category.category_id FROM post LEFT JOIN category ON post.category = category.category_id LEFT JOIN user ON post.author = user.user_id
+                        $sql1 = "SELECT post.title, post.description,post.post_img,post.post_date,user.username, category.category_name,post.post_id,category.category_id,user.user_id FROM post LEFT JOIN category ON post.category = category.category_id LEFT JOIN user ON post.author = user.user_id
                             WHERE category.category_id = {$cat_id}    
                             ORDER BY post_id DESC LIMIT {$offset},{$limit}";
 
@@ -59,7 +59,7 @@
                                         </span>
                                         <span>
                                             <i class="fa fa-user" aria-hidden="true"></i>
-                                            <a href='author.php'><?= $row1['username'];?></a>
+                                            <a href='author.php?id=<?= $row1['user_id'] ?>'><?= $row1['username'];?></a>
                                         </span>
                                         <span>
                                             <i class="fa fa-calendar" aria-hidden="true"></i>
@@ -89,18 +89,22 @@
                         if ($page > 1) {
                             echo '<li><a href="category.php?cid='. ($cat_id) .'&page=' . ($page - 1) . '">Prev</a></li>';
                         }
+
                         for ($i = 1; $i <= $total_page; $i++) {
                             if ($i == $page) {
                                 $active = "active";
                             } else {
                                 $active = "";
                             }
-    
-                            echo "<li class = '{$active}'><a href='category.php?cid='. ($cat_id) .'&page={$i}'> {$i} </a></li>";
-                        }
+                    ?>
+                       <li class="<?php echo $active; ?>">
+                        <a href="category.php?cid=<?php echo $cat_id;?>&page=<?php echo $i; ?>"> <?php echo $i ?> </a>
+                       </li>    
+                     <?php   }
     
                         if ($total_page > $page) {
-                            echo '<li><a href="category.php?cid='. ($cat_id) .'&page=' . ($page + 1) . '">Next</a></li>';
+                            echo '<li>
+                            <a href="category.php?cid='. ($cat_id) .'&page=' . ($page + 1) . '"> Next </a></li>';
                         }
                         echo "</ul>";
                     }

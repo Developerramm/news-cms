@@ -91,11 +91,18 @@
                                 $active = "";
                             }
 
-                            echo "<li class = '{$active}'><a href='author.php?id='. ($user_id) .'&page={$i}'> {$i} </a></li>";
+
+                        ?>    
+                          
+                            <li class="<?php echo $active; ?>">
+                                <a href="author.php?id=<?php echo $user_id; ?>&page=<?php echo $i; ?>"> <?php echo $i; ?> </a>
+                            </li>
+
+                        <?php    
                         }
 
                         if ($total_page > $page) {
-                            echo '<li><a href="author.php?id=' . ($user_id) . '&page=' . ($page + 1) . '">Next</a></li>';
+                            echo '<li><a href="author.php?id='.($user_id) . '&page=' . ($page + 1) . '">Next</a></li>';
                         }
                         echo "</ul>";
                     }
