@@ -25,7 +25,7 @@
           ?>  
         <div class="recent-post">
             <a class="post-img" href="single.php?id=<?= $row['post_id'];?>">
-                <img src="./admin/upload/<?= $row['post_img']; ?>" alt="" />
+                <img src="./admin/upload/<?= $row['post_img']; ?>" alt="" style="height: 70px; object-fit: cover;" />
             </a>
             <div class="post-content">
                 <h5><a href="single.php?id=<?= $row['post_id']; ?>"> <?= $row['title']; ?> </a></h5>

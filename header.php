@@ -26,8 +26,21 @@
             </div>
             <!-- /LOGO -->
             <div class="col-md-offset-8  col-md-1">
-                <a href="./admin" 
-                style="font-size: 18px;color: white;" >Login/Register</a>
+                <?php 
+                    session_start();
+                    if(isset($_SESSION['username'])){
+                          echo '<a href="./admin/logout.php" 
+                style="font-size: 18px;color: white;" >
+                Logout
+            </a>';  
+                    }else{
+                        echo '<a href="./admin" 
+                style="font-size: 18px;color: white;" >
+                Login/Register
+            </a>';
+                    }
+                ?>
+                
             </div>
         </div>
     </div>
