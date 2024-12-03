@@ -11,6 +11,6 @@ $role = mysqli_real_escape_string($conn,$_POST['role']);
 $sql1 = "UPDATE user SET first_name = '{$fname}', last_name = '{$lname}',username = '{$user}', role = '{$role}' WHERE user_id = {$id}";
 
 if(mysqli_query($conn,$sql1)){
-    header("Location:http://localhost/news/admin/users.php");
+    header("Location:{$hostname}/admin/users.php");
 }
 ?>
